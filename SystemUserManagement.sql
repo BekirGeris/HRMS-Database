@@ -26,7 +26,7 @@ WITH (
     OIDS = FALSE
 );
 
-CREATE TABLE public."Job_Seekers"
+CREATE TABLE public."Jop_Seekers"
 (
     "UserId" integer,
     "FirstName" character varying(30),
@@ -64,7 +64,7 @@ WITH (
     OIDS = FALSE
 );
 
-CREATE TABLE public."Job_Positions"
+CREATE TABLE public."Jop_Positions"
 (
     "Id" integer,
     "JobName" character varying(50),
