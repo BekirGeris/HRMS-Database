@@ -8,7 +8,6 @@ CREATE TABLE public."Users"
     "Id" integer,
     "E-posta" character varying(50),
     "Password" character varying(15),
-    "RepeatPassword" character varying(15),
     PRIMARY KEY ("Id")
 )
 WITH (
@@ -27,7 +26,7 @@ WITH (
     OIDS = FALSE
 );
 
-CREATE TABLE public." JobSeekers"
+CREATE TABLE public."Job_Seekers"
 (
     "UserId" integer,
     "FirstName" character varying(30),
@@ -40,7 +39,7 @@ WITH (
     OIDS = FALSE
 );
 
-CREATE TABLE public." System Personnel"
+CREATE TABLE public." System_Personnel"
 (
     "UserId" integer,
     "FirstName" character varying(30),
@@ -53,7 +52,7 @@ WITH (
     OIDS = FALSE
 );
 
-CREATE TABLE public."EmployerActivations"
+CREATE TABLE public."Employer_Activations"
 (
     "Id" integer,
     "UserId" integer,
@@ -65,7 +64,7 @@ WITH (
     OIDS = FALSE
 );
 
-CREATE TABLE public."JobPositions"
+CREATE TABLE public."Job_Positions"
 (
     "Id" integer,
     "JobName" character varying(50),
@@ -84,25 +83,19 @@ ALTER TABLE public."Users"
 
 ALTER TABLE public."Users"
     ADD FOREIGN KEY ("Id")
-    REFERENCES public." JobSeekers" ("UserId")
+    REFERENCES public."Job_Seekers" ("UserId")
     NOT VALID;
 
 
 ALTER TABLE public."Users"
     ADD FOREIGN KEY ("Id")
-    REFERENCES public." System Personnel" ("UserId")
+    REFERENCES public." System_Personnel" ("UserId")
     NOT VALID;
 
 
-ALTER TABLE public."EmployerActivations"
+ALTER TABLE public."Employer_Activations"
     ADD FOREIGN KEY ("UserId")
     REFERENCES public."Users" ("Id")
-    NOT VALID;
-
-
-ALTER TABLE public."JobPositions"
-    ADD FOREIGN KEY ("PositionId")
-    REFERENCES public." System Personnel" ("PositionId")
     NOT VALID;
 
 END;
